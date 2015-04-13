@@ -17,13 +17,13 @@ class Manipulation:
         ##Audio button opens audio menu##
         self.Audio= Tkinter.Button(self.Menu, text = "Audio", command = self.Audio)
         ##merge button opens merge menu##
-        self.Merge = Tkinter.Button(self.Menu, text = "Merge both", command = self.Both)
+        self.MergeB = Tkinter.Button(self.Menu, text = "Merge both", command = self.Both)
         ##Shows video button##
         self.Video.pack()
         ##Shows audio button##
         self.Audio.pack()
         ##shows merge button##
-        self.Merge.pack()
+        self.MergeB.pack()
         ##Creates the GUI##
         Tkinter.mainloop()
     ##Video menu##
@@ -55,12 +55,13 @@ class Manipulation:
         ##uses tkinterface##
         self.Both = Tkinter.Tk()
         ##button for merging both video and audio##
-        self.Merge = Tkinter.Button(self.Both, text = "Merge", command = self.Merge)
+        self.Merge = Tkinter.Button(self.Both, text = "Merge", command = self.MergeF)
         ##shows the button##
         self.Merge.pack()
     ##Does the process of merging##
-    def Merge(self):
+    def MergeF(self):
         ##goes to desktop##
+        print("hey")
         subprocess.call("cd Desktop", shell = True)
         ##gets video and audio##
         subprocess.call("ffmpeg -i audio.mp3 -i video3.mp4 finale.mp4", shell = True)
