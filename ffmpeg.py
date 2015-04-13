@@ -63,7 +63,7 @@ class Manipulation:
         ##goes to desktop##
         subprocess.call("cd Desktop", shell = True)
         ##gets video and audio##
-        subprocess.call("ffmpeg -i son.wav -i video_origine.avi video_finale.mpg", shell = True)
+        subprocess.call("ffmpeg -i audio.mp3 -i video3.mp4 finale.mp4", shell = True)
     ##Takes an image from a video##
     def TakeI(self):
         ##searches desktop##
@@ -97,7 +97,7 @@ class Manipulation:
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##takes images and makes video##
-        subprocess.call("ffmpeg -f img, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10 -i image%d.jpg video.mpg", shell = True)
+        subprocess.call("ffmpeg -r 1/5 -i img.jpg -c:v libx264 -r 30 -pix_fmt yuv420p slideshow.mp4", shell = True)
     
 
 ##connects the gui and manipulation##
