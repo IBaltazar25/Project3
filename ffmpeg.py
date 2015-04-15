@@ -42,6 +42,22 @@ class Manipulation:
         self.Make = Tkinter.Button(self.Video, text = "Make Video from Images", command = self.MakeV)
         ##shows the button##
         self.Make.pack()
+         ##button for splitting video in two parts##
+        self.Split = Tkinter.Button(self.Video, text = "Split video in two", command = self.SplitV)
+        ##shows the button##
+        self.Split.pack()
+        ##button for making image to video##
+        self.Make1 = Tkinter.Button(self.Video, text = "Make image into a video", command = self.MakeI)
+        ##shows the button##
+        self.Make1.pack()
+        ##button for speeding up or slowing down video##
+        self.SV = Tkinter.Button(self.Video, text = "Speed or slow down video", command = self.SVideo)
+        ##shows the button##
+        self.SV.pack()
+        ##button for making video into a gif##
+        self.Make2 = Tkinter.Button(self.Video, text = "Make image into gif", command = self.MakeG)
+        ##shows the button##
+        self.Make2.pack()
     ##Audio menu##
     def Audio(self):
         ##uses tkinterface##
@@ -50,6 +66,18 @@ class Manipulation:
         self.Take = Tkinter.Button(self.Audio, text = "Take Audio from Video", command = self.TakeA)
         ##shows the button##
         self.Take.pack()
+        ##button for muting audio from video##
+        self.Mute = Tkinter.Button(self.Audio, text = "Mute audio from video", command = self.MuteA)
+        ##shows the button##
+        self.Mute.pack()
+        ##button for speeding up or slowing down audio##
+        self.SA = Tkinter.Button(self.Audio, text = "Speed up or slow down audio", command = self.SAudio)
+        ##shows the button##
+        self.SA.pack()
+        ##button for adding image to audio file##
+        self.Add = Tkinter.Button(self.Audio, text = "Add image to audio ", command = self.AddI)
+        ##shows the button##
+        self.Add.pack()
     ##Merge both audio and video menu##
     def Both(self):
         ##uses tkinterface##
@@ -99,6 +127,48 @@ class Manipulation:
         subprocess.call("cd Desktop", shell = True)
         ##takes images and makes video##
         subprocess.call("ffmpeg -r 1/5 -i img.jpg -c:v libx264 -r 30 -pix_fmt yuv420p slideshow.mp4", shell = True)
+        ##mutes the audio from a video and makes new video
+    def MuteA(self):
+        ##searches desktop##
+        subprocess.call("cd Desktop", shell = True)
+        ##extracts the audio
+        subprocess.call("ffmpeg -i video.mp4 -an mutevideo.mp4", shell = True)
+    ##Takes a video and makes smaller clips
+    def SplitV(self):
+        ##searches desktop##
+        subprocess.call("cd Desktop", shell = True)
+        ##splits video in two parts
+        subprocess.call("ffmpeg -i video1.mp4 -t 00:01:30 -c copy part1.mp4 -ss 00:01:30 -codec copy part2.mp4", shell = True)
+    ##Make image to video
+    def MakeI(self):
+        ##searches desktop##
+        subprocess.call("cd Desktop", shell = True)
+        ##takes the image and makes a video
+        subprocess.call("ffmpeg -loop 1 -i img.jpg -c:v libx264 -t 30 -pix_fmt yuv420p video5.mp4", shell = True)
+        ##Slows dow or speeds up audio
+    def SAudio(self):
+        ##searches desktop##
+        subprocess.call("cd Desktop", shell = True)
+        ##speeds up or slows the duration
+        subprocess.call("ffmpeg -i audio.mp3 -filter:a atempo=2.0 -vn output.mp3", shell = True)
+        ##speeds or slows the video
+    def SVideo(self):
+        ##searches desktop##
+        subprocess.call("cd Desktop", shell = True)
+        ##speeds up or slows down video time 
+        subprocess.call("ffmpeg -i video.mp4 -filter:v setpts=0.125*PTS output1.mp4", shell = True)
+        ##add poster image to audio
+    def AddI(self):
+        ##searches desktop##
+        subprocess.call("cd Desktop", shell = True)
+        ##takes image and adds it to audio
+        subprocess.call("ffmpeg -loop 1 -i img.jpg -i audio.mp3 -c:v libx264 -c:a aac -strict experimental -b:a 192k -shortest output2.mp4", shell = True)
+        ##Makes image to animated GIF
+    def MakeG(self):
+        ##searches desktop##
+        subprocess.call("cd Desktop", shell = True)
+        ##takes an image and creates a GIF
+        subprocess.call("ffmpeg -i video3.mp4 -vf scale=500:-1 -t 10 -r 10 image.gif", shell = True)
     
 
 ##connects the gui and manipulation##
