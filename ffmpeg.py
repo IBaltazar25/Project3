@@ -64,23 +64,23 @@ class Manipulation:
         print("hey")
         subprocess.call("cd Desktop", shell = True)
         ##gets video and audio##
-        subprocess.call("ffmpeg -i audio.mp3 -i video3.mp4 finale.mp4", shell = True)
+        subprocess.call("ffmpeg -i audio.mp3 -i video.mp4 finale.mp4", shell = True)
     ##Takes an image from a video##
     def TakeI(self):
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##at 15 seconds it takes the image from a video##
-        subprocess.call("ffmpeg -ss 00:00:05 -i video2.mp4 -vf scale=800:-1 -vframes 1 img.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:10 -i video2.mp4 -vf scale=800:-1 -vframes 1 img1.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:12 -i video2.mp4 -vf scale=800:-1 -vframes 1 img2.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:14 -i video2.mp4 -vf scale=800:-1 -vframes 1 img3.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:16 -i video2.mp4 -vf scale=800:-1 -vframes 1 img4.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:18 -i video2.mp4 -vf scale=800:-1 -vframes 1 img5.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:20 -i video2.mp4 -vf scale=800:-1 -vframes 1 img6.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:22 -i video2.mp4 -vf scale=800:-1 -vframes 1 img7.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:24 -i video2.mp4 -vf scale=800:-1 -vframes 1 img8.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:26 -i video2.mp4 -vf scale=800:-1 -vframes 1 img9.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:28 -i video2.mp4 -vf scale=800:-1 -vframes 1 img10.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:05 -i video.mp4 -vf scale=800:-1 -vframes 1 img.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:10 -i video.mp4 -vf scale=800:-1 -vframes 1 img1.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:12 -i video.mp4 -vf scale=800:-1 -vframes 1 img2.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:14 -i video.mp4 -vf scale=800:-1 -vframes 1 img3.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:16 -i video.mp4 -vf scale=800:-1 -vframes 1 img4.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:18 -i video.mp4 -vf scale=800:-1 -vframes 1 img5.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:20 -i video.mp4 -vf scale=800:-1 -vframes 1 img6.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:22 -i video.mp4 -vf scale=800:-1 -vframes 1 img7.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:24 -i video.mp4 -vf scale=800:-1 -vframes 1 img8.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:26 -i video.mp4 -vf scale=800:-1 -vframes 1 img9.jpg", shell = True)
+        subprocess.call("ffmpeg -ss 00:00:30 -i video.mp4 -vf scale=800:-1 -vframes 1 img10.jpg", shell = True)
     ##Takes audio from a video##
     def TakeA(self):
         ##searches the desktop##
