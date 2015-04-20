@@ -89,7 +89,6 @@ class Manipulation:
     ##Does the process of merging##
     def MergeF(self):
         ##goes to desktop##
-        print("hey")
         subprocess.call("cd Desktop", shell = True)
         ##gets video and audio##
         subprocess.call("ffmpeg -i audio.mp3 -i video.mp4 finale.mp4", shell = True)
