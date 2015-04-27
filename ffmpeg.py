@@ -120,12 +120,6 @@ class Manipulation:
         subprocess.call("cd Desktop", shell = True)
         ##makes 50 second videos##
         subprocess.call("ffmpeg -i video.mp4 -ss 00:00:50.0 -codec copy -t 20 output.mp4", shell = True)
-    ##makes video from images##
-    def MakeV(self):
-        ##searches desktop##
-        subprocess.call("cd Desktop", shell = True)
-        ##takes images and makes video##
-        subprocess.call("ffmpeg -r 1/5 -i img.jpg -c:v libx264 -r 30 -pix_fmt yuv420p slideshow.mp4", shell = True)
         ##mutes the audio from a video and makes new video
     def MuteA(self):
         ##searches desktop##
