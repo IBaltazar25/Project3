@@ -38,10 +38,6 @@ class Manipulation:
         self.Cut = Tkinter.Button(self.Video, text = "Cut Video", command = self.CutV)
         ##shows the button##
         self.Cut.pack()
-        ##button for making video from images##
-        self.Make = Tkinter.Button(self.Video, text = "Make Video from Images", command = self.MakeV)
-        ##shows the button##
-        self.Make.pack()
          ##button for splitting video in two parts##
         self.Split = Tkinter.Button(self.Video, text = "Split video in two", command = self.SplitV)
         ##shows the button##
