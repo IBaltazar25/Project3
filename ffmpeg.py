@@ -13,11 +13,11 @@ class Manipulation:
         ##uses tkinterface##
         self.Menu = Tkinter.Tk()
         ##video buton opens video menu##
-        self.Video = Tkinter.Button(self.Menu, text = "Video", command = self.Video)
+        self.Video = Tkinter.Button(self.Menu, text = "Video", fg="yellow", bg="black", pady=10,padx=46, command = self.Video)
         ##Audio button opens audio menu##
-        self.Audio= Tkinter.Button(self.Menu, text = "Audio", command = self.Audio)
+        self.Audio= Tkinter.Button(self.Menu, text = "Audio", fg="yellow", bg="black", pady=10, padx=45, command = self.Audio)
         ##merge button opens merge menu##
-        self.MergeB = Tkinter.Button(self.Menu, text = "Merge both", command = self.Both)
+        self.MergeB = Tkinter.Button(self.Menu, text = "Merge both", fg="yellow", bg="black", pady=10, padx=30, command = self.Both)
         ##Shows video button##
         self.Video.pack()
         ##Shows audio button##
@@ -31,27 +31,27 @@ class Manipulation:
         ##uses tkinterface##
         self.Video = Tkinter.Tk()
         ##Button for taking images from video##
-        self.Take = Tkinter.Button(self.Video, text = "Take Images from Video", command = self.TakeI)
+        self.Take = Tkinter.Button(self.Video, text = "Take Images from Video",  fg="red", bg="black", pady=10, padx=25, command = self.TakeI)
         ##shows the button##
         self.Take.pack()
         ##Button for cutting video into smaller time frames##
-        self.Cut = Tkinter.Button(self.Video, text = "Cut Video", command = self.CutV)
+        self.Cut = Tkinter.Button(self.Video, text = "Cut Video", fg="red", bg="black", pady=10, padx=63, command = self.CutV)
         ##shows the button##
         self.Cut.pack()
          ##button for splitting video in two parts##
-        self.Split = Tkinter.Button(self.Video, text = "Split video in two", command = self.SplitV)
+        self.Split = Tkinter.Button(self.Video, text = "Split video in two", fg="red", bg="black", pady=10, padx=43.50, command = self.SplitV)
         ##shows the button##
         self.Split.pack()
         ##button for making image to video##
-        self.Make1 = Tkinter.Button(self.Video, text = "Make image into a video", command = self.MakeI)
+        self.Make1 = Tkinter.Button(self.Video, text = "Make image into a video", fg="red", bg="black", pady=10, padx=24, command = self.MakeI)
         ##shows the button##
         self.Make1.pack()
         ##button for speeding up or slowing down video##
-        self.SV = Tkinter.Button(self.Video, text = "Speed or slow down video", command = self.SVideo)
+        self.SV = Tkinter.Button(self.Video, text = "Speed or slow down video", fg="red", bg="black", pady=10, padx=20, command = self.SVideo)
         ##shows the button##
         self.SV.pack()
         ##button for making video into a gif##
-        self.Make2 = Tkinter.Button(self.Video, text = "Make image into gif", command = self.MakeG)
+        self.Make2 = Tkinter.Button(self.Video, text = "Make image into gif", fg="red", bg="black", pady=10, padx=36, command = self.MakeG)
         ##shows the button##
         self.Make2.pack()
     ##Audio menu##
@@ -59,19 +59,19 @@ class Manipulation:
         ##uses tkinterface##
         self.Audio = Tkinter.Tk()
         ##button to take audio from video##
-        self.Take = Tkinter.Button(self.Audio, text = "Take Audio from Video", command = self.TakeA)
+        self.Take = Tkinter.Button(self.Audio, text = "Take Audio from Video",  fg="yellow", bg="red", pady=10, padx=45, command = self.TakeA)
         ##shows the button##
         self.Take.pack()
         ##button for muting audio from video##
-        self.Mute = Tkinter.Button(self.Audio, text = "Mute audio from video", command = self.MuteA)
+        self.Mute = Tkinter.Button(self.Audio, text = "Mute audio from video", fg="yellow", bg="red", pady=10, padx=45, command = self.MuteA)
         ##shows the button##
         self.Mute.pack()
         ##button for speeding up or slowing down audio##
-        self.SA = Tkinter.Button(self.Audio, text = "Speed up or slow down audio", command = self.SAudio)
+        self.SA = Tkinter.Button(self.Audio, text = "Speed up or slow down audio", fg="yellow", bg="red", pady=10, padx=28, command = self.SAudio)
         ##shows the button##
         self.SA.pack()
         ##button for adding image to audio file##
-        self.Add = Tkinter.Button(self.Audio, text = "Add image to audio ", command = self.AddI)
+        self.Add = Tkinter.Button(self.Audio, text = "Add image to audio ", fg="yellow", bg="red", pady=10, padx=52, command = self.AddI)
         ##shows the button##
         self.Add.pack()
     ##Merge both audio and video menu##
@@ -79,7 +79,7 @@ class Manipulation:
         ##uses tkinterface##
         self.Both = Tkinter.Tk()
         ##button for merging both video and audio##
-        self.Merge = Tkinter.Button(self.Both, text = "Merge", command = self.MergeF)
+        self.Merge = Tkinter.Button(self.Both, text = "Merge", fg="blue", bg="white", pady=10, padx=45, command = self.MergeF)
         ##shows the button##
         self.Merge.pack()
     ##Does the process of merging##
