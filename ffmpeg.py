@@ -31,27 +31,27 @@ class Manipulation:
         ##uses tkinterface##
         self.Video = Tkinter.Tk()
         ##Button for taking images from video##
-        self.Take = Tkinter.Button(self.Video, text = "Take Images from Video",  fg="red", bg="black", pady=10, padx=25, command = self.TakeI)
+        self.Take = Tkinter.Button(self.Video, text = "Take Images from Video",  fg="red", bg="green", pady=10, padx=25, command = self.TakeI)
         ##shows the button##
         self.Take.pack()
         ##Button for cutting video into smaller time frames##
-        self.Cut = Tkinter.Button(self.Video, text = "Cut Video", fg="red", bg="black", pady=10, padx=63, command = self.CutV)
+        self.Cut = Tkinter.Button(self.Video, text = "Cut Video", fg="red", bg="green", pady=10, padx=63, command = self.CutV)
         ##shows the button##
         self.Cut.pack()
          ##button for splitting video in two parts##
-        self.Split = Tkinter.Button(self.Video, text = "Split video in two", fg="red", bg="black", pady=10, padx=43.50, command = self.SplitV)
+        self.Split = Tkinter.Button(self.Video, text = "Split video in two", fg="red", bg="green", pady=10, padx=43.50, command = self.SplitV)
         ##shows the button##
         self.Split.pack()
         ##button for making image to video##
-        self.Make1 = Tkinter.Button(self.Video, text = "Make image into a video", fg="red", bg="black", pady=10, padx=24, command = self.MakeI)
+        self.Make1 = Tkinter.Button(self.Video, text = "Make image into a video", fg="red", bg="green", pady=10, padx=24, command = self.MakeI)
         ##shows the button##
         self.Make1.pack()
         ##button for speeding up or slowing down video##
-        self.SV = Tkinter.Button(self.Video, text = "Speed or slow down video", fg="red", bg="black", pady=10, padx=20, command = self.SVideo)
+        self.SV = Tkinter.Button(self.Video, text = "Speed or slow down video", fg="red", bg="green", pady=10, padx=20, command = self.SVideo)
         ##shows the button##
         self.SV.pack()
         ##button for making video into a gif##
-        self.Make2 = Tkinter.Button(self.Video, text = "Make image into gif", fg="red", bg="black", pady=10, padx=36, command = self.MakeG)
+        self.Make2 = Tkinter.Button(self.Video, text = "Make image into gif", fg="red", bg="green", pady=10, padx=36, command = self.MakeG)
         ##shows the button##
         self.Make2.pack()
     ##Audio menu##
