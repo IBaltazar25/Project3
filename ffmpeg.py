@@ -12,6 +12,10 @@ class Manipulation:
     def __init__(self):
         ##uses tkinterface##
         self.Menu = Tkinter.Tk()
+        self.Menu.maxsize(500,500)
+        oldtitle = self.Menu.title()
+        self.Menu.title('V.A.M')
+        self.Menu.geometry('200x150-850+400')
         ##video buton opens video menu##
         self.Video = Tkinter.Button(self.Menu, text = "Video", fg="yellow", bg="black", pady=10,padx=46, command = self.Video)
         ##Audio button opens audio menu##
@@ -30,6 +34,8 @@ class Manipulation:
     def Video(self):
         ##uses tkinterface##
         self.Video = Tkinter.Tk()
+        self.Video.title('V.A.M')
+        self.Video.geometry('260x290-550+400')
         ##Button for taking images from video##
         self.Take = Tkinter.Button(self.Video, text = "Take Images from Video",  fg="red", bg="green", pady=10, padx=25, command = self.TakeI)
         ##shows the button##
@@ -58,6 +64,8 @@ class Manipulation:
     def Audio(self):
         ##uses tkinterface##
         self.Audio = Tkinter.Tk()
+        self.Audio.title('V.A.M')
+        self.Audio.geometry('300x200-1100+400')
         ##button to take audio from video##
         self.Take = Tkinter.Button(self.Audio, text = "Take Audio from Video",  fg="yellow", bg="red", pady=10, padx=45, command = self.TakeA)
         ##shows the button##
@@ -78,6 +86,8 @@ class Manipulation:
     def Both(self):
         ##uses tkinterface##
         self.Both = Tkinter.Tk()
+        self.Both.title('V.A.M')
+        self.Both.geometry('200x70-850+270')
         ##button for merging both video and audio##
         self.Merge = Tkinter.Button(self.Both, text = "Merge", fg="blue", bg="white", pady=10, padx=45, command = self.MergeF)
         ##shows the button##
