@@ -12,7 +12,6 @@ class Manipulation:
     def __init__(self):
         ##uses tkinterface##
         self.Menu = Tkinter.Tk()
-        self.Menu.maxsize(500,500)
         oldtitle = self.Menu.title()
         self.Menu.title('V.A.M')
         self.Menu.geometry('200x150-850+400')
