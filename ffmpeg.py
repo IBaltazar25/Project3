@@ -271,7 +271,7 @@ class Manipulation:
         self.labelMakeG.pack()
         self.textEntryMakeG = Tkinter.Entry(self.MakeGwindow, width = 50)
         self.textEntryMakeG.pack()
-        self.MakeGbutton = Tkinter.Button(self.MakeGwindow, text = "Enter", command = self.AddIcommands)
+        self.MakeGbutton = Tkinter.Button(self.MakeGwindow, text = "Enter", command = self.MakeGcommands)
         self.MakeGbutton.pack()
     def MakeGcommands(self):
         makeg = self.textEntryMakeG.get()
