@@ -70,7 +70,7 @@ class Manipulation:
         ##shows the button##
         self.Take.pack()
         ##button for muting audio from video##
-        self.Mute = Tkinter.Button(self.Audio, text = "Mute audio from video", fg="yellow", bg="red", pady=10, padx=45, command = self.MuteA)
+        self.Mute = Tkinter.Button(self.Audio, text = "Mute audio from Video", fg="yellow", bg="red", pady=10, padx=45, command = self.MuteA)
         ##shows the button##
         self.Mute.pack()
         ##button for speeding up or slowing down audio##
@@ -93,80 +93,192 @@ class Manipulation:
         self.Merge.pack()
     ##Does the process of merging##
     def MergeF(self):
+        self.MergeFwindow = Tkinter.Tk()
+        self.MergeFwindow.title('Merge')
+        self.MergeFwindow.geometry('-780+150')
+        self.labelMergeF = Tkinter.Label(self.MergeFwindow, text = "Choose a time to display an image from a video. (i.e. 00:00:01)")
+        self.labelMergeF.pack()
+        self.textEntryMergeF = Tkinter.Entry(self.MergeFwindow, width = 50)
+        self.textEntryMergeF.pack()
+        self.MergeFbutton = Tkinter.Button(self.MergeFwindow, text = "Enter", command = self.MergeFcommands)
+        self.MergeFbutton.pack()
+    def MergeFcommands(self):
+        mergef = self.textEntry.get()
         ##goes to desktop##
         subprocess.call("cd Desktop", shell = True)
         ##gets video and audio##
-        subprocess.call("ffmpeg -i audio.mp3 -i video.mp4 finale.mp4", shell = True)
+        subprocess.call("ffmpeg -i audio.mp3 -i video.mp4 " + mergef + ".mp4", shell = True)
     ##Takes an image from a video##
     def TakeI(self):
+        self.TakeIwindow = Tkinter.Tk()
+        self.TakeIwindow.title('Take Image from Video')
+        self.TakeIwindow.geometry('-175+400')
+        self.labelTakeI = Tkinter.Label(self.TakeIwindow, text = "Choose a time to display an image from a video. (i.e. 00:00:01)")
+        self.labelTakeI.pack()
+        self.textEntryTakeI = Tkinter.Entry(self.TakeIwindow, width = 50)
+        self.textEntryTakeI.pack()
+        self.TakeIbutton = Tkinter.Button(self.TakeIwindow, text = "Enter", command = self.TakeIcommands)
+        self.TakeIbutton.pack()
+    ##Takes audio from a video##
+    def TakeIcommands(self):
+        takei = self.textEntryTakeI.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##at 15 seconds it takes the image from a video##
-        subprocess.call("ffmpeg -ss 00:00:05 -i video.mp4 -vf scale=800:-1 -vframes 1 img.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:10 -i video.mp4 -vf scale=800:-1 -vframes 1 img1.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:12 -i video.mp4 -vf scale=800:-1 -vframes 1 img2.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:14 -i video.mp4 -vf scale=800:-1 -vframes 1 img3.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:16 -i video.mp4 -vf scale=800:-1 -vframes 1 img4.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:18 -i video.mp4 -vf scale=800:-1 -vframes 1 img5.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:20 -i video.mp4 -vf scale=800:-1 -vframes 1 img6.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:22 -i video.mp4 -vf scale=800:-1 -vframes 1 img7.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:24 -i video.mp4 -vf scale=800:-1 -vframes 1 img8.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:26 -i video.mp4 -vf scale=800:-1 -vframes 1 img9.jpg", shell = True)
-        subprocess.call("ffmpeg -ss 00:00:30 -i video.mp4 -vf scale=800:-1 -vframes 1 img10.jpg", shell = True)
-    ##Takes audio from a video##
+        subprocess.call("ffmpeg -ss " + takei + " -i video.mp4 -vf scale=800:-1 -vframes 1 TakeI.jpg", shell = True)
     def TakeA(self):
+        self.TakeAwindow = Tkinter.Tk()
+        self.TakeAwindow.title('Take Audio from Video')
+        self.TakeAwindow.geometry('-1450+400')
+        self.labelTakeA = Tkinter.Label(self.TakeAwindow, text = "Please enter the output file name.")
+        self.labelTakeA.pack()
+        self.textEntryTakeA = Tkinter.Entry(self.TakeAwindow, width = 50)
+        self.textEntryTakeA.pack()
+        self.TakeAbutton = Tkinter.Button(self.TakeAwindow, text = "Enter", command = self.TakeAcommands)
+        self.TakeAbutton.pack()
+    def TakeAcommands(self):
+        takea = self.textEntryTakeA.get()
         ##searches the desktop##
         subprocess.call("cd Desktop", shell = True)
         ##does the process##
-        subprocess.call("ffmpeg -i video.mp4 -vn -ab 256 audio.mp3", shell = True)
+        subprocess.call("ffmpeg -i video.mp4 -vn -ab 256 " + takea + ".mp3", shell = True)
     ##cuts video into smaller clips##
     def CutV(self):
+        self.CutVwindow = Tkinter.Tk()
+        self.CutVwindow.title('Cut Video')
+        self.CutVwindow.geometry('-175+400')
+        self.labelCutV = Tkinter.Label(self.CutVwindow, text = "Where do you wish to cut the video? (i.e. 00:02:50)")
+        self.labelCutV.pack()
+        self.textEntryCutV = Tkinter.Entry(self.CutVwindow, width = 50)
+        self.textEntryCutV.pack()
+        self.CutVbutton = Tkinter.Button(self.CutVwindow, text = "Enter", command = self.CutVcommands)
+        self.CutVbutton.pack()
+    def CutVcommands(self):
+        cutv = self.textEntryCutV.get()
         ##searches the desktop##
         subprocess.call("cd Desktop", shell = True)
-        ##makes 50 second videos##
-        subprocess.call("ffmpeg -i video.mp4 -ss 00:00:50.0 -codec copy -t 20 output.mp4", shell = True)
+        ##makes 20 second videos##
+        subprocess.call("ffmpeg -i video.mp4 -ss " + cutv + " -codec copy -t 20 CutV.mp4", shell = True)
         ##mutes the audio from a video and makes new video
     def MuteA(self):
+        self.MuteAwindow = Tkinter.Tk()
+        self.MuteAwindow.title('Mute Audio from video')
+        self.MuteAwindow.geometry('-1450+400')
+        self.labelMuteA = Tkinter.Label(self.MuteAwindow, text = "Please enter the output file name.")
+        self.labelMuteA.pack()
+        self.textEntryMuteA = Tkinter.Entry(self.MuteAwindow, width = 50)
+        self.textEntryMuteA.pack()
+        self.MuteAbutton = Tkinter.Button(self.MuteAwindow, text = "Enter", command = self.MuteAcommands)
+        self.MuteAbutton.pack()
+    def MuteAcommands(self):
+        mutea = self.textEntryMuteA.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##extracts the audio
-        subprocess.call("ffmpeg -i video.mp4 -an mutevideo.mp4", shell = True)
+        subprocess.call("ffmpeg -i video.mp4 -an " + mutea + ".mp4", shell = True)
     ##Takes a video and makes smaller clips
     def SplitV(self):
+        self.SplitVwindow = Tkinter.Tk()
+        self.SplitVwindow.title('Split Video in two')
+        self.SplitVwindow.geometry('-175+400')
+        self.labelSplitV = Tkinter.Label(self.SplitVwindow, text = "Where do you wish to cut the video? (i.e. 00:02:50)")
+        self.labelSplitV.pack()
+        self.textEntrySplitV = Tkinter.Entry(self.SplitVwindow, width = 50)
+        self.textEntrySplitV.pack()
+        self.SplitVbutton = Tkinter.Button(self.SplitVwindow, text = "Enter", command = self.SplitVcommands)
+        self.SplitVbutton.pack()
+    def SplitVcommands(self):
+        splitv = self.textEntrySplitV.get()
+        splitv2 = self.textEntrySplitV.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##splits video in two parts
-        subprocess.call("ffmpeg -i video1.mp4 -t 00:01:30 -c copy part1.mp4 -ss 00:01:30 -codec copy part2.mp4", shell = True)
+        subprocess.call("ffmpeg -i video.mp4 -t " + splitv + " -c copy splitvpart1.mp4 -ss " + splitv2 + " -codec copy splitvpart2.mp4", shell = True)
     ##Make image to video
     def MakeI(self):
+        self.MakeIwindow = Tkinter.Tk()
+        self.MakeIwindow.title('Make image into a video')
+        self.MakeIwindow.geometry('-175+400')
+        self.labelMakeI = Tkinter.Label(self.MakeIwindow, text = "Please enter the output file name.")
+        self.labelMakeI.pack()
+        self.textEntryMakeI = Tkinter.Entry(self.MakeIwindow, width = 50)
+        self.textEntryMakeI.pack()
+        self.MakeIbutton = Tkinter.Button(self.MakeIwindow, text = "Enter", command = self.MakeIcommands)
+        self.MakeIbutton.pack()
+    def MakeIcommands(self):
+        makei = self.textEntryMakeI.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##takes the image and makes a video
-        subprocess.call("ffmpeg -loop 1 -i img.jpg -c:v libx264 -t 30 -pix_fmt yuv420p video5.mp4", shell = True)
-        ##Slows dow or speeds up audio
+        subprocess.call("ffmpeg -loop 1 -i img.jpg -c:v libx264 -t 30 -pix_fmt yuv420p " + makei + ".mp4", shell = True)
+        ##Slows down or speeds up audio
     def SAudio(self):
+        self.SAudiowindow = Tkinter.Tk()
+        self.SAudiowindow.title('Speed up or slow down audio')
+        self.SAudiowindow.geometry('-1450+400')
+        self.labelSAudio = Tkinter.Label(self.SAudiowindow, text = "Please enter the output file name.")
+        self.labelSAudio.pack()
+        self.textEntrySAudio = Tkinter.Entry(self.SAudiowindow, width = 50)
+        self.textEntrySAudio.pack()
+        self.SAudiobutton = Tkinter.Button(self.SAudiowindow, text = "Enter", command = self.SAudiocommands)
+        self.SAudiobutton.pack()
+    def SAudiocommands(self):
+        saudio = self.textEntrySAudio.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##speeds up or slows the duration
-        subprocess.call("ffmpeg -i audio.mp3 -filter:a atempo=2.0 -vn output.mp3", shell = True)
+        subprocess.call("ffmpeg -i audio.mp3 -filter:a atempo=2.0 -vn " + saudio + ".mp3", shell = True)
         ##speeds or slows the video
     def SVideo(self):
+        self.SVideowindow = Tkinter.Tk()
+        self.SVideowindow.title('Speed or slow down video')
+        self.SVideowindow.geometry('-175+400')
+        self.labelSVideo = Tkinter.Label(self.SVideowindow, text = "Please enter the output file name.")
+        self.labelSVideo.pack()
+        self.textEntrySVideo = Tkinter.Entry(self.SVideowindow, width = 50)
+        self.textEntrySVideo.pack()
+        self.SVideobutton = Tkinter.Button(self.SVideowindow, text = "Enter", command = self.SVideocommands)
+        self.SVideobutton.pack()
+    def SVideocommands(self):
+        svideo = self.textEntrySVideo.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##speeds up or slows down video time 
-        subprocess.call("ffmpeg -i video.mp4 -filter:v setpts=0.125*PTS output1.mp4", shell = True)
+        subprocess.call("ffmpeg -i video.mp4 -filter:v setpts=0.125*PTS " + svideo + ".mp4", shell = True)
         ##add poster image to audio
     def AddI(self):
+        self.AddIwindow = Tkinter.Tk()
+        self.AddIwindow.title('Add Image to Audio')
+        self.AddIwindow.geometry('-1450+400')
+        self.labelAddI = Tkinter.Label(self.AddIwindow, text = "Please enter the output file name.")
+        self.labelAddI.pack()
+        self.textEntryAddI = Tkinter.Entry(self.AddIwindow, width = 50)
+        self.textEntryAddI.pack()
+        self.AddIbutton = Tkinter.Button(self.AddIwindow, text = "Enter", command = self.AddIcommands)
+        self.AddIbutton.pack()
+    def AddIcommands(self):
+        addi = self.textEntryaddi.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##takes image and adds it to audio
-        subprocess.call("ffmpeg -loop 1 -i img.jpg -i audio.mp3 -c:v libx264 -c:a aac -strict experimental -b:a 192k -shortest output2.mp4", shell = True)
+        subprocess.call("ffmpeg -loop 1 -i img.jpg -i audio.mp3 -c:v libx264 -c:a aac -strict experimental -b:a 192k -shortest " + addi + ".mp4", shell = True)
         ##Makes image to animated GIF
     def MakeG(self):
+        self.MakeGwindow = Tkinter.Tk()
+        self.MakeGwindow.title('Make image into gif')
+        self.MakeGwindow.geometry('-175+400')
+        self.labelMakeG = Tkinter.Label(self.MakeGwindow, text = "Please enter the output file name.")
+        self.labelMakeG.pack()
+        self.textEntryMakeG = Tkinter.Entry(self.MakeGwindow, width = 50)
+        self.textEntryMakeG.pack()
+        self.MakeGbutton = Tkinter.Button(self.MakeGwindow, text = "Enter", command = self.AddIcommands)
+        self.MakeGbutton.pack()
+    def MakeGcommands(self):
+        makeg = self.textEntryMakeG.get()
         ##searches desktop##
         subprocess.call("cd Desktop", shell = True)
         ##takes an image and creates a GIF
-        subprocess.call("ffmpeg -i video3.mp4 -vf scale=500:-1 -t 10 -r 10 image.gif", shell = True)
+        subprocess.call("ffmpeg -i gifvideo.mp4 -vf scale=500:-1 -t 10 -r 10 " + makeg + ".gif", shell = True)
     
 
 ##connects the gui and manipulation##
