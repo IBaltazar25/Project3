@@ -56,7 +56,7 @@ class Manipulation:
         ##shows the button##
         self.Make1.pack()
         ##button for speeding up or slowing down video##
-        self.SV = Tkinter.Button(self.Video, text = "Speed or slow down video", fg="red", bg="green", pady=10, padx=20, command = self.SVideo)
+        self.SV = Tkinter.Button(self.Video, text = "Speed up a video", fg="red", bg="green", pady=10, padx=45, command = self.SVideo)
         ##shows the button##
         self.SV.pack()
         ##button for making video into a gif##
@@ -80,7 +80,7 @@ class Manipulation:
         ##shows the button##
         self.Mute.pack()
         ##button for speeding up or slowing down audio##
-        self.SA = Tkinter.Button(self.Audio, text = "Speed up or slow down audio", fg="yellow", bg="red", pady=10, padx=28, command = self.SAudio)
+        self.SA = Tkinter.Button(self.Audio, text = "Speed up an audio", fg="yellow", bg="red", pady=10, padx=56, command = self.SAudio)
         ##shows the button##
         self.SA.pack()
         ##button for adding image to audio file##
@@ -251,7 +251,7 @@ class Manipulation:
         ##creates a new window##
         self.SAudiowindow = Tkinter.Tk()
         ##this gives a title to the window##
-        self.SAudiowindow.title('Speed up or slow down audio')
+        self.SAudiowindow.title('Speed up audio')
         ##this changes the spawn location of the window##
         self.SAudiowindow.geometry('-1450+400')
         ##Creates a new label, button, and a text entry box to allow for user input##
@@ -272,7 +272,7 @@ class Manipulation:
         ##creates a new window##
         self.SVideowindow = Tkinter.Tk()
         ##this gives a title to the window##
-        self.SVideowindow.title('Speed or slow down video')
+        self.SVideowindow.title('Speed up video')
         ##this changes the spawn location of the window##
         self.SVideowindow.geometry('-175+400')
         ##Creates a new label, button, and a text entry box to allow for user input##
